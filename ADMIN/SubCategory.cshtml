@@ -1,0 +1,91 @@
+﻿
+@{
+    ViewBag.Title = "SubCategory";
+    Layout = "~/Views/Shared/ADMIN_LayoutPage1.cshtml";
+}
+
+
+
+
+
+
+
+<div class="row p-5">
+    <div class="col-sm-5 card">
+        <div class="card-body ">
+            <h4 class="card-title text-center">ADD <b class="text-warning">SUBCATEGORY</b></h4>
+
+            <form method="post" enctype="multipart/form-data">
+                <div class="form-group mt-3  ">
+                    <label for="exampleInputtext4" class="form-label">Choose Category Name</label>
+                    <select name="category" class="form-control sorm-select form-select-lg mb-3 " placeholder="Enter Category">
+
+                        <option value="0">Choose category</option>
+
+                        @{
+                            if (ViewBag.subcat != null)
+                            {
+                                foreach (var data in ViewBag.subcat.Rows)
+                                {
+                                    <option value="@data[0]">@data[1]</option>
+                                    <option value="@data[0]">@data[2]</option>
+
+                                }
+                            }
+                        }
+
+
+                    </select>
+                </div>
+
+                <div class="form-group mt-3  b">
+                    <label for="exampleInputtext4" class="form-label">Sub Category </label>
+                    <input type="text" name="subcatname" class="form-control " placeholder="Enter Category"/>
+
+                
+                </div>
+
+                <div class="form-group mt-3 b">
+                    <label for="exampleInput" class="form-label">SubCategory Icon</label>
+                    <input type="file" name="subcaticon" class="form-control">
+                </div>
+                <input type="submit" class="btn btn-outline-success  mt-3 b" value="ADD NOW " />
+            </form>
+        </div>
+
+
+    </div>
+    <div class="col-sm-6 ms-5 card text-center">
+        <div class="card-body">
+            <!--Start table-->
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th> S.No</th>
+                        <th>Category name</th>
+                        <th> SubCategory Name</th>
+                        <th>SubCategory Icon</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{
+                        if (ViewBag.subcategory != null)
+                        {
+                            foreach( var data in ViewBag.subcategory.Rows)
+                {
+                                        <tr>
+                                            <td>@data[0]</td>
+                                            <td>@data[1]</td>
+                                            <td>@data[2]</td>
+                                            <td><img src="~/Content/subcatpic/@data[3]" style="height:50px ;width:50px " /></td>
+                                        </tr>
+                }
+                        }
+                    }
+                </tbody>
+            </table>
+            <!--End table-->
+        </div> 
+    </div>
+</div>

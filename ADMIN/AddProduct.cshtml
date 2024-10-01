@@ -1,0 +1,182 @@
+﻿
+@{
+    ViewBag.Title = "AddProduct";
+    Layout = "~/Views/Shared/ADMIN_LayoutPage1.cshtml";
+}
+
+
+
+
+<div class="row p-5">
+    <!--stating of form card-->
+
+
+    <div class="text-center"><h2>Add<b class="text-warning">Product</b></h2></div>
+    <div class="row">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-6 col-md-8 col-lg-10 card fs-5" style="min-height:700px;">
+            <form class="row g-3 mt-3" method="post" enctype="multipart/form-data">
+                <div class="col-md-6">
+                    <label for="inputState" class="form-label">Choose Category</label>
+                    <select id="inputState" name="pcat" class="form-select">
+                        <option value="0">Choose product category</option>
+
+                        @{
+                            if (ViewBag.category != null)
+                            {
+                                foreach (var data in ViewBag.category.Rows)
+                                {
+                                    <option value="@data[0]">@data[1]</option>
+
+
+                                }
+                            }
+                        }
+
+                    </select>
+                </div>
+                <div class="col-md-6">
+                    <label for="inputState" class="form-label">Choose SubCategory</label>
+                    <select id="inputState" name="psubcat" class="form-select">
+                        <option value="0">Choose product Subcategory</option>
+
+                        @{
+                            if (ViewBag.subcat != null)
+                            {
+                                foreach (var data in ViewBag.subcat.Rows)
+                                {
+                                    <option value="@data[0]">@data[2]</option>
+
+
+                                }
+                            }
+                        }
+
+                    </select>
+                </div>
+                <div class="col-12">
+                    <label for="inputAddress" class="form-label">Product Name:</label>
+                    <input type="text" name="pname" class="form-control" id="inputAddress" placeholder="Enter Your Product Name*">
+                </div>
+                <div class="col-12">
+                    <label for="inputAddress2" class="form-label">Product Details</label>
+                    <textarea class="form-control col-2" name="pdesc" required style="min-height:100px;" placeholder="Enter Your Product Details*" name="address"></textarea>
+                </div>
+                <div class="col-6">
+                    <label for="inputAddress" class="form-label">Model</label>
+                    <input type="text" class="form-control" name="pmodel" id="inputAddress" placeholder="Enter Your Models Name*">
+                </div>
+                <div class="col-6">
+                    <label for="inputAddress" class="form-label">Pack Size</label>
+                    <input type="text" class="form-control" name="psize" id="inputAddress" placeholder="Enter Your Pace Size*">
+                </div>
+
+
+                <div class="col-md-6">
+                    <label for="inputEmail4" class="form-label">Sale Rate</label>
+
+                    <div class="col-auto">
+                        <label class="visually-hidden" for="autoSizingInputGroup">Username</label>
+                        <div class="input-group">
+                            <div class="input-group-text"><i class="fa-solid fa-store"></i></div>
+                            <input type="text" name="psalerate" class="form-control" id="autoSizingInputGroup" placeholder="Enter Your Models Name">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <label for="inputPassword4" class="form-label">Mrp</label>
+                    <div class="col-auto">
+                        <label class="visually-hidden" for="autoSizingInputGroup">Username</label>
+                        <div class="input-group">
+                            <div class="input-group-text"><i class="fa-solid fa-indian-rupee-sign"></i></div>
+                            <input type="text" name="pmrp" class="form-control" id="autoSizingInputGroup" placeholder="Enter Your Mrp">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <label for="inputAddress" class="form-label">Chosse Picture</label>
+                    <input type="file" name="picon" class="form-control" id="inputAddress">
+                </div>
+
+
+                <div class="col-6 " style="margin-left: 400px">
+                    <input type="submit" class="btn btn-outline-success" value="ADD PRODUCT NOW"><br />
+                </div>
+            </form>
+        </div>
+    </div>
+    </div>
+
+
+
+    <!--starting of table section -->
+    <div class="row">
+        <div class="col-sm-10 mt-5 card text-center mx-auto">
+            <div class="card">
+                <table class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th>S.N.</th>
+                            <th>Category Name</th>
+                            <th>Subcategory Name</th>
+                            <th>Product Name</th>
+                            <th>Details</th>
+                            <th>Model</th>
+                            <th>MRP</th>
+                            <th>Salerate</th>
+                            <th>Pack/Size</th>
+                            <th>Pic</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{
+                            if (ViewBag.product != null)
+                            {
+                                foreach (var pr in ViewBag.product.Rows)
+                                {
+                                    <tr>
+                                        <td>@pr[0]</td>
+                                        <td>@pr[1]</td>
+                                        <td>@pr[2]</td>
+                                        <td>@pr[3]</td>
+                                        <td>@pr[4]</td>
+                                        <td>@pr[5]</td>
+                                        <td>@pr[6]</td>
+                                        <td>@pr[7]</td>
+                                        <td>@pr[8]</td>
+                                        <td>
+                                            <img src="~/Content/productpic/@pr[9]"
+                                               style=" height:70px; width:70px " />
+                                        </td>
+                                        <td>@pr[10]</td>
+                                    </tr>
+                                }
+                            }
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
