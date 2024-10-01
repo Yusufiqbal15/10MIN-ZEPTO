@@ -1,0 +1,115 @@
+﻿
+@{
+    ViewBag.Title = "contact";
+    Layout = "~/Views/Shared/generallayout.cshtml";
+}
+<div class="container-fluid " style="height:100%">
+    <div class=" row text-center">
+        <div class="col-sm-12">
+            <h3><span class="text-warning">Contact</span> With Us</h3><br />
+
+            You may contact us by contact number or fill this form any time you need professional support or <br />have any question.
+        </div>
+    </div>
+    <div class="row">
+
+        <div class="col-sm-12 bg-light p-5 " style="width:80%;border-radius: 5px 5px 5px 5px; margin:30px auto; min-height: 500px">
+            <form method="post" action="/home/contact">
+                <div class="row">
+                    <h4><span class="text-warning"> Send Your  </span> Message</h4><br /><br />
+                    <div class="col-6" style="min-height:50px">
+
+
+                        <b>  Your Name:</b>
+                        <input type="text" class="form-control" name="name" placeholder="enter your name" style="height:40px;width:70%" />
+                    </div>
+
+                    <div class="col-6" style="min-height:50px">
+                        <b>  Your Contact: </b>
+                        <input type="text" class="form-control" name="contact" placeholder="enter your contact" style="height:40px;width:70%" />
+
+                    </div>
+                </div><br />
+                <b>   ENTER Email  </b>
+                <input type="email" placeholder="Enter your email" name="email" class="form-control " style="height:40px;width:80%" />
+                <br />
+                <b>  MESSAGE:  </b><textarea name="area" placeholder="enter our address"> </textarea>
+                <br /><br />
+                <input type="submit" value="SEND MESSAGE" class="border border-1 border-warning  bg-light text-warning p-2" />
+
+            </form>
+        </div>
+        <div class="col-sm-12 bg-color" style="min-height:200px;width:100%">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h2 class="text-light"><i class="fa-solid fa-location-pin"></i> CONTACT ADDRESS</h2>
+                </div>
+                </div>
+            <div class="row text-light">
+                <div class="col-sm-4">
+                    <i class="fa-solid fa-map-location-dot"> <br />&nbsp;
+                        <b style="font-family:Cambria">
+                            NEAR MADHARSA DARUT TALIM,<br /> IMILIYA ROAD ,SONADIMARG,<br /> BELTHARA ROAD BALLIA ,<br />
+                            (221715)(U.P)
+                        </b>
+
+            
+                    </i>
+
+                </div>
+
+                <div class="col-sm-4">
+                    <i class="fa-solid fa-phone "></i><h6> 91+9260946950</h6>
+                    
+                    <i class="fa-solid fa-phone text-light"></i><h6>91+9137956904</h6>
+
+
+                </div>
+
+                <div class="col-lg-4">
+                    <i class="fa-solid fa-envelope"><b style="font-family:Cambria">yusufiqbal150@gmail.com</b></i><br />
+                    &<br />
+                    <i class="fa-solid fa-envelope"><b style="font-family:Cambria">safariqbal871@gmail.com</b></i>
+                   
+
+                </div>
+            </div>
+            
+
+        </div>
+
+    </div>
+
+
+    <table class="table-bordered form-control text-center">
+        <thead>
+            <tr>
+                <th>SR.no</th>
+                <th>NAME</th>
+                <th>CONTACT</th>
+                <th>EMAIL</th>
+                <th>ADDRESS</th>
+
+            </tr>
+        </thead>
+        @{
+            if (ViewBag.data != null)
+            {
+                foreach (var r in ViewBag.data.Rows)
+                {
+                    <tr>
+                        <td>@r[0]</td>
+                        <td>@r[1]</td>
+                        <td>@r[2]
+                        <td>
+                        <td>@r[3]</td>
+
+
+                    </tr>
+                }
+            }
+        }
+    </table>
+</div>
+
+
