@@ -1,0 +1,135 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/Content/css/all.css" rel="stylesheet" />
+    <link href="~/Content/css/bootstrap.css" rel="stylesheet" />
+    <script src="~/Content/js/bootstrap.bundle.js"></script>
+    <style>
+        :root {
+            --bgcolor: linear-gradient(45deg,#1a0656,#761740);
+            --txtcolor: #ffffff;
+        }
+
+        .bg-color {
+            background: var(--bgcolor);
+        }
+
+        .txt-mycolor {
+            color: var(--txtcolor);
+        }
+    </style>
+</head>
+<body>
+    <div class="row bg-info">
+        <div class="col-lg-4 col-md-6 col-sm-12 ">
+
+        </div>
+
+        <div class="col-lg-4 col-md-6 col-sm-12 ">
+        </div>
+
+        <div class="col-lg-4 col-md-6 col-sm-12 ">
+        </div>
+    </div>
+    
+    <div class="row">
+        @*start menu  *@
+        <nav class="navbar navbar-dark bg-color">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">10MIN<b class="text-warning">ZYAPTO<i class="fa-solid fa-cart-shopping"></i></b></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="offcanvas offcanvas-start text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Dark offcanvas</h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+
+                            <li class="nav-item">
+                                <a class=" nav-link active" aria-current="page" href="/admin/index"> <b>DASHBOARD<i class="fa-solid fa-bars-staggered"></i></b></a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="/Admin/Category">Category</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="/admin/Subcategory">Subcategory</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="#">Cart</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="/admin/addproduct">Add Product</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="/admin/order">Order</a>
+                            </li>
+
+
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Management
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-dark">
+                                    <li><a class="dropdown-item" href="/admin/productmanagement">Product Managemnet</a></li>
+                                    <li><a class="dropdown-item" href="/admin/usermanagement">User Management</a></li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="#">Change Password</a>
+
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="/admin/logout">Logout</a>
+                            </li>
+                        </ul>
+                        <form class="d-flex mt-3" role="search">
+                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                            <button class="btn btn-success" type="submit">Search</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        @* end menu *@
+
+    </div>
+
+    <div class="row">
+        <div class=" col-sm-12" style="min-height:500px;">
+            @RenderBody()
+
+        </div>
+
+    </div>
+    <div class="ufooter bg-color">
+        <div class="col-sm-6 ">
+            <a style="text-decoration:none;" href="https://www.techpile.in/"><b class="text-light"> Techpile Technology </b>  <b class="text-warning ">Private Limited </b></a>
+
+
+        </div>
+
+        <div class="col-sm-6 text-warning">
+            <b class="text-light">Developer name is</b>:<b class="text-war"> Mohammad yusuf iqbal</b>
+
+
+        </div>
+
+    </div>
+
+
+</body>
+</html>
